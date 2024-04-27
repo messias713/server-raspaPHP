@@ -1,0 +1,45 @@
+<html>
+<meta charset="utf-8">
+<h1>Raspar base dados qualquer por link.php<br>Criar server direto.</h1>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<a href="#" id="linkInteracao">Clique aqui para interagir com a base de dados</a>
+<script>
+<div id="resultado"></div>
+<script>
+$(document).ready(function() {
+    $('#linkInteracao').click(function() {
+        // Aqui você pode adicionar o código para interagir com a base de dados
+        // Por exemplo, fazer uma requisição AJAX para um arquivo PHP que irá manipular a base de dados
+         var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("resultado").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "https://www.cbr.ru/eng/.php", true);//aqui link do site.php
+        xhttp.send();
+        $.ajax({
+            url: 'https://www.cbr.ru/eng/.php',//link interagir base-dados.php
+            method: 'GET',
+            success: function(response) {
+                console.log(response);
+                alert('Interagiu com a base de dados com sucesso!');
+            },
+            error: function(error) {
+                console.error(error);
+                alert('Erro ao interagir com a base de dados.');
+            }
+        });
+    });
+});
+</script>
+</script>
+
+</html>
+
+<pre>
+Criar arquivo php.
+copiar caminho do arquivo e colar no index-html
+colocar os 2 arquivos na mesma pasta e local exemplo.php exemplo index.html
+QUE È O CODIGO DE CIMA
+<pre>
